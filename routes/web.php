@@ -104,7 +104,9 @@ Route::post('form2Submit' , [form1Controller::class , 'form2Submit'])->name('for
 
 
 
-
+Route::get('\reeman',function(){
+    return "reeman";
+});
 
 
 Route::prefix('site3')->name('site3.')->group(function(){
