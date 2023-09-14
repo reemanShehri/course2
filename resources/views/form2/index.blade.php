@@ -12,17 +12,7 @@
 
     <div class="container my-5">
         <h2 class="mt-5">Form 1 </h2>
-        @if ($errors->any())
-
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-             <ul>
-                @foreach ($errors->all() as $e)
-                  <li>{{ $e }}</li>
-                @endforeach
-             </ul>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        @endif
+     @include('parts.error')
 
 
 

@@ -72,41 +72,41 @@ Route::get('index' , function(){
 
 
 
-Route::get('/' , function () {
-   return view('welcome') ;
-});
+// Route::get('/' , function () {
+//    return view('welcome') ;
+// });
 
-Route::get('home' , function(){
-   return view('site1.home');
-});
+// Route::get('home' , function(){
+//    return view('site1.home');
+// });
 
-Route::prefix('site1')->controller(SiteController::class)
-->name('site.')->group(function(){
-    Route::get('/index' ,   'index')->name('index');
-    Route::get('/about' ,  'about')->name('about');
-    Route::get('/services' ,  'services')->name('services');
-    Route::get('/contact' ,  'contact')->name('contact');
-});
+// Route::prefix('site1')->controller(SiteController::class)
+// ->name('site.')->group(function(){
+//     Route::get('/index' ,   'index')->name('index');
+//     Route::get('/about' ,  'about')->name('about');
+//     Route::get('/services' ,  'services')->name('services');
+//     Route::get('/contact' ,  'contact')->name('contact');
+// });
 
-Route::prefix('site2')->group(function(){
-     Route::get('/' , [Site2Controller::class , 'index'] )->name('index');
-     Route::get('about' , [Site2Controller::class , 'about'])->name('about');
-     Route::post('post_msg' , [Site2Controller::class , 'post_msg'])->name('post_msg');
-     Route::get('/view' , [Site2Controller::class , 'view'] )->name('view');
-});
-
-
-Route::get('form1' , [form1Controller::class , 'index'])->name('index');
-Route::post('form1Submit' , [form1Controller::class , 'form1Submit'])->name('form1Submit');
-
-Route::get('form2' , [form1Controller::class , 'form2'])->name('form2');
-Route::post('form2Submit' , [form1Controller::class , 'form2Submit'])->name('form2Submit');
+// Route::prefix('site2')->group(function(){
+//      Route::get('/' , [Site2Controller::class , 'index'] )->name('index');
+//      Route::get('about' , [Site2Controller::class , 'about'])->name('about');
+//      Route::post('post_msg' , [Site2Controller::class , 'post_msg'])->name('post_msg');
+//      Route::get('/view' , [Site2Controller::class , 'view'] )->name('view');
+// });
 
 
+// Route::get('form1' , [form1Controller::class , 'index'])->name('index');
+// Route::post('form1Submit' , [form1Controller::class , 'form1Submit'])->name('form1Submit');
 
-Route::get('\reeman',function(){
-    return "reeman";
-});
+// Route::get('form2' , [form1Controller::class , 'form2'])->name('form2');
+// Route::post('form2Submit' , [form1Controller::class , 'form2Submit'])->name('form2Submit');
+
+
+
+// Route::get('\reeman',function(){
+//     return "reeman";
+// });
 
 
 Route::prefix('site3')->name('site3.')->group(function(){
@@ -119,12 +119,35 @@ Route::prefix('site3')->name('site3.')->group(function(){
     Route::prefix('sub_category')->name('sub_category.')->controller(SubCategoryController::class)->group(function(){
         Route::get('/{id}' , 'index')->name('index')  ;
    });
+
 });
 
 
+/*
+Route::get('/category', [CategoryController::class , 'index'])->name('index');
+Route::get('/category/create', [CategoryController::class , 'create'])->name('category.create');
+Route::post('/category', [CategoryController::class , 'store'])->name('category.store');
 
 
 
+Route::get('/category/{id}', [CategoryController::class , 'show'])->name('show');
+
+
+
+Route::get('/category/{id}/edit', [CategoryController::class , 'edit'])->name('category.edit');
+
+Route::put('/category/{id}/edit', [CategoryController::class , 'update'])->name('category.update');
+
+
+Route::delete('/category/{id}/delete', [CategoryController::class , 'destroy'])->name('category.destroy');
+
+
+*/
+
+
+
+
+Route::resource('/category', CategoryController::class);
 
 
 

@@ -9,26 +9,40 @@
   <body>
 
      <div class="container my-5">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-             @foreach ($sub_categories as $i)
-             <tr>
-                <th scope="row">{{ $loop->index + 1  }}</th>
-                <td>{{ $i->name }}</td>
-                <td>{{ $i->category->name }}</td>
-                <td><a class="btn btn-success">View Products</a></td>
-              </tr>
-             @endforeach
-            </tbody>
-          </table>
+        <h4> create category </h4>
+        @include('parts.errors')
+     
+      <form method="post" action= "{{ route ('category.store') }}">
+      @csrf
+
+
+
+
+      <div class="mb-3">
+        <label for="">Category name</label>
+        <input type="text" name="name" class="form-control">
+   
+     </div>
+
+
+     
+     <div class="mb-3">
+        <label for="">Category description</label>
+        <textarea name="description" class="form-control"> </textarea>
+   
+     </div>
+
+     <div class="mb-3">
+        <button class="btn btn-success w-100">submit</button>
+     </div>
+
+
+
+
+
+
+
+      </form>
      </div>
 
 

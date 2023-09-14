@@ -10,9 +10,8 @@ class SubCategoryController extends Controller
 {
     function index($id) {
 
-       // $sub_categories = SubCategory::where('category_id','=', $id)->get(); equal operation is by default
-         $sub_categories = SubCategory::query()->where('category_id', $id)->get();// get to get data , query to deal with sql functions
-         
+       // $sub_categories = SubCategory::where('category_id', $id)->get();
+         $sub_categories = SubCategory::query()->where('category_id', $id)->get();
       // id -> category -------- >>> subcategory
      return view('site3.sub_category.index' , compact('sub_categories')) ;
     }
